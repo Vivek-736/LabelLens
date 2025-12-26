@@ -1,4 +1,4 @@
-import { pgTable, integer, varchar, text, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, integer, varchar, text, timestamp, boolean } from "drizzle-orm/pg-core";
 
 export const usersTable = pgTable("users", {
     id: integer().primaryKey().generatedAlwaysAsIdentity(),
@@ -11,5 +11,6 @@ export const scans = pgTable("scans", {
     imageUrl: varchar("image_url", { length: 255 }).notNull(),
     analysis: text("analysis").notNull(),
     userEmail: varchar("user_email", { length: 255 }).notNull(),
+    quizCompleted: boolean("quiz_completed").default(false).notNull(),
     createdAt: timestamp("created_at").defaultNow().notNull(),
 });

@@ -157,7 +157,7 @@ const DashboardPage = () => {
                             {isPending ? (
                                 <Loader2 className="w-5 h-5 mr-2 animate-spin" />
                             ) : (
-                                <Sparkles className="w-5 h-5 mr-2 text-indigo-200 group-hover:text-white transition-colors" />
+                                <div></div>
                             )}
                             {isPending ? "Analyzing Ingredients..." : "Explain Ingredients"}
                         </Button>

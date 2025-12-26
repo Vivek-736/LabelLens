@@ -119,7 +119,7 @@ export default async function ScanResultPage({ params }: PageProps) {
 
     return (
         <div className="min-h-screen bg-slate-50/50 text-slate-900 animate-in fade-in duration-500 pb-24">
-            <div className="sticky top-0 z-10 bg-white/80 backdrop-blur-md border-b border-slate-200/60 support-backdrop-blur:bg-white/60">
+            <div className="sticky top-0 bg-white/80 backdrop-blur-md border-b border-slate-200/60 support-backdrop-blur:bg-white/60">
                 <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
                     <Button variant="ghost" size="sm" asChild className="text-slate-500 hover:text-slate-900 hover:bg-slate-100 -ml-2 rounded-full px-3">
                         <Link href="/dashboard">
@@ -269,7 +269,7 @@ export default async function ScanResultPage({ params }: PageProps) {
                             </div>
 
                             <Button size="lg" className="rounded-full px-8 h-12 bg-slate-900 hover:bg-slate-800 text-white shadow-lg shadow-slate-900/20 transition-all hover:scale-105 group">
-                                <Link href="/dashboard/quiz" className="flex items-center gap-2">
+                                <Link href={`/dashboard/scan/${id}/quiz`} className="flex items-center gap-2">
                                     <CheckCircle2 className="w-5 h-5 text-indigo-400 group-hover:text-indigo-300 transition-colors" />
                                     Take the Quick Quiz
                                     <ChevronRight className="w-4 h-4 opacity-50 group-hover:translate-x-1 transition-transform" />
