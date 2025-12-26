@@ -1,0 +1,1 @@
+ALTER TABLE "scans" RENAME COLUMN "user_id" TO "user_email";
