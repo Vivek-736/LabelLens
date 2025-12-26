@@ -4,15 +4,7 @@
   <p>
     <strong>AI-Native Ingredient Analysis & Reflection Engine</strong>
   </p>
-  <p>
-    <a href="#overview">Overview</a> •
-    <a href="#key-features">Features</a> •
-    <a href="#tech-stack">Tech Stack</a> •
-    <a href="#getting-started">Getting Started</a> •
-    <a href="#project-structure">Structure</a>
-  </p>
 </div>
-
 <br />
 
 <div align="center">
