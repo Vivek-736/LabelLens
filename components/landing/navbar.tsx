@@ -47,12 +47,14 @@ export function Navbar() {
                 </div>
 
                 <div className="flex items-center gap-4">
-                    <Button
-                        suppressHydrationWarning
-                        className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-full px-6 shadow-lg shadow-indigo-200"
-                    >
-                        Get Started
-                    </Button>
+                    <Link href="/dashboard">
+                        <Button
+                            suppressHydrationWarning
+                            className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-full px-6 shadow-lg shadow-indigo-200"
+                        >
+                            Get Started
+                        </Button>
+                    </Link>
                 </div>
             </div>
         </nav>
