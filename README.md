@@ -142,5 +142,5 @@ Follow these steps to set up the project locally.
 ---
 
 <div align="center">
-  <p>Made with passion by Team: <strong>NoCompromise</strong></p>
+  <p>Made with passion by Team <strong>NoCompromise</strong></p>
 </div>
