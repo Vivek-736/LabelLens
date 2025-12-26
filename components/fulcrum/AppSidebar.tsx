@@ -12,7 +12,7 @@ import {
     SidebarMenuItem,
     useSidebar
 } from "@/components/ui/sidebar";
-import { History, Scan, User2Icon } from "lucide-react";
+import { History, Scan, User2Icon, TrendingUp } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -28,6 +28,11 @@ const MenuOptions = [
         title: "History",
         url: "/dashboard/history",
         icon: History
+    },
+    {
+        title: "Progress",
+        url: "/dashboard/progress",
+        icon: TrendingUp
     },
     {
         title: "Profile",
@@ -54,6 +59,7 @@ function AppSidebar() {
                                 className="object-cover p-1"
                             />
                         </div>
+                        
                         {open && (
                             <div className="flex flex-col animate-in fade-in slide-in-from-left-2 duration-300">
                                 <h2 className="text-lg font-bold tracking-tight text-slate-900">
