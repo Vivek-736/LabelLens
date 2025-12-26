@@ -59,6 +59,7 @@ export function Hero() {
                         className="flex flex-wrap items-center gap-4"
                     >
                         <Button
+                            suppressHydrationWarning
                             size="lg"
                             className="bg-black hover:bg-gray-800 text-white rounded-full h-12 px-12 text-base shadow-xl hover:shadow-2xl transition-all duration-300 group"
                         >

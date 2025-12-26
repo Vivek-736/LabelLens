@@ -23,7 +23,6 @@ export function Navbar() {
                             className="object-contain"
                         />
                     </div>
-
                     <span className="text-xl font-bold tracking-tight text-black">
                         LabelLens
                     </span>
@@ -49,6 +48,7 @@ export function Navbar() {
 
                 <div className="flex items-center gap-4">
                     <Button
+                        suppressHydrationWarning
                         className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-full px-6 shadow-lg shadow-indigo-200"
                     >
                         Get Started

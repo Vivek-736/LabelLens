@@ -30,7 +30,6 @@ export function Footer() {
                         </p>
                     </div>
 
-                    {/* Product Links */}
                     <div className="space-y-4">
                         <h4 className="text-sm font-semibold text-black tracking-wider uppercase">Product</h4>
                         <ul className="space-y-2">
@@ -52,7 +51,6 @@ export function Footer() {
                         </ul>
                     </div>
 
-                    {/* Company/Legal */}
                     <div className="space-y-4">
                         <h4 className="text-sm font-semibold text-black tracking-wider uppercase">Support</h4>
                         <ul className="space-y-2">
@@ -74,7 +72,6 @@ export function Footer() {
                         </ul>
                     </div>
 
-                    {/* Newsletter */}
                     <div className="space-y-4">
                         <h4 className="text-sm font-semibold text-black tracking-wider uppercase">Stay Updated</h4>
                         <p className="text-sm text-gray-500">
@@ -82,17 +79,17 @@ export function Footer() {
                         </p>
                         <div className="flex gap-2">
                             <Input
+                                suppressHydrationWarning
                                 placeholder="Enter your email"
                                 className="h-9 text-sm bg-gray-50 border-gray-200 focus-visible:ring-indigo-500"
                             />
-                            <Button size="sm" className="h-9 bg-black text-white hover:bg-gray-800">
+                            <Button suppressHydrationWarning size="sm" className="h-9 bg-black text-white hover:bg-gray-800">
                                 Join
                             </Button>
                         </div>
                     </div>
                 </div>
 
-                {/* Bottom Bar */}
                 <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="text-sm text-gray-400">
                         &copy; {new Date().getFullYear()} LabelLens. All rights reserved.
