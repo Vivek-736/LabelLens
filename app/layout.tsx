@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -20,15 +21,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html 
-      lang="en"
-      suppressHydrationWarning
+    <ClerkProvider
+      publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+      appearance={{
+        layout: {
+          unsafe_disableDevelopmentModeWarnings: true,
+        }
+      }}
     >
-      <body
-        className={`${outfit.className} antialiased`}
+      <html
+        lang="en"
+        suppressHydrationWarning
       >
-        {children}
-      </body>
-    </html>
+        <body
+          className={`${outfit.className} antialiased`}
+        >
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

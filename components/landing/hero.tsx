@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowRight, ScanLine, Sparkles, Brain } from "lucide-react";
+import Link from "next/link";
 
 export function Hero() {
     return (
@@ -58,14 +59,16 @@ export function Hero() {
                         transition={{ duration: 0.5, delay: 0.3 }}
                         className="flex flex-wrap items-center gap-4"
                     >
-                        <Button
-                            suppressHydrationWarning
-                            size="lg"
-                            className="bg-black hover:bg-gray-800 text-white rounded-full h-12 px-12 text-base shadow-xl hover:shadow-2xl transition-all duration-300 group"
-                        >
-                            Get Started
-                            <ArrowRight className="ml-2 w-4 h-4" />
-                        </Button>
+                        <Link href={'/dashboard'}>
+                            <Button
+                                suppressHydrationWarning
+                                size="lg"
+                                className="bg-black hover:bg-gray-800 text-white rounded-full h-12 px-12 text-base shadow-xl hover:shadow-2xl transition-all duration-300 group"
+                            >
+                                Get Started
+                                <ArrowRight className="ml-2 w-4 h-4" />
+                            </Button>
+                        </Link>
                     </motion.div>
 
                     <motion.div
