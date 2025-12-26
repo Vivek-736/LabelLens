@@ -58,7 +58,7 @@ This project is built with a modern, type-safe stack designed for performance an
 -   **Database**: Neon (Serverless PostgreSQL)
 -   **ORM**: Drizzle ORM
 -   **Storage**: Firebase Storage
--   **Auth**: Clerk
+-   **Auth**: Clerk Auth with google provider
 
 ## Getting Started
 
