@@ -12,7 +12,7 @@ import {
     SidebarMenuItem,
     useSidebar
 } from "@/components/ui/sidebar";
-import { History, LayoutDashboard, User2Icon } from "lucide-react";
+import { History, Scan, User2Icon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -20,9 +20,9 @@ import { useUser } from "@clerk/nextjs";
 
 const MenuOptions = [
     {
-        title: "Dashboard",
+        title: "Scan",
         url: "/dashboard",
-        icon: LayoutDashboard
+        icon: Scan
     },
     {
         title: "History",
