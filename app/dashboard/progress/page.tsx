@@ -8,6 +8,8 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import { Button } from "@/components/ui/button";
+import { Suspense } from "react";
+import Loading from "@/app/loading";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
 
@@ -50,7 +52,15 @@ TONE:
 
 The Progress page should feel like a personal reflection space, not an analytics dashboard.`;
 
-export default async function ProgressPage() {
+export default function ProgressPage() {
+    return (
+        <Suspense fallback={<div className="bg-slate-50/50 flex items-center justify-center"><Loading className="min-h-[70vh] mt-64" /></div>}>
+            <ProgressContent />
+        </Suspense>
+    );
+}
+
+async function ProgressContent() {
     const user = await currentUser();
 
     if (!user || !user.emailAddresses?.[0]?.emailAddress) {
@@ -64,7 +74,7 @@ export default async function ProgressPage() {
 
     if (userScans.length === 0) {
         return (
-            <div className="min-h-screen bg-slate-50/50 flex flex-col items-center justify-center p-6 text-center space-y-6">
+            <div className="min-h-[70vh] bg-slate-50/50 flex flex-col items-center justify-center p-6 text-center space-y-6">
                 <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center border border-slate-200 shadow-sm">
                     <TrendingUp className="w-8 h-8 text-slate-300" />
                 </div>
@@ -76,9 +86,9 @@ export default async function ProgressPage() {
                 </div>
                 <Button asChild size="lg" className="rounded-full px-8">
                     <Link href="/dashboard">
-                         <div className="flex items-center gap-2">
-                             <span>Start First Scan</span>
-                         </div>
+                        <div className="flex items-center gap-2">
+                            <span>Start First Scan</span>
+                        </div>
                     </Link>
                 </Button>
             </div>
@@ -87,12 +97,12 @@ export default async function ProgressPage() {
 
     const contextData = userScans.slice(0, 10).map(s => ({
         date: s.createdAt,
-        analysisSnippet: s.analysis.substring(0, 200) + "...", 
+        analysisSnippet: s.analysis.substring(0, 200) + "...",
         quizCompleted: s.quizCompleted
     }));
 
     const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-    
+
     let reflection = "";
     try {
         const result = await model.generateContent([
@@ -121,7 +131,7 @@ export default async function ProgressPage() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                     <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col items-center text-center space-y-3 hover:shadow-md transition-shadow duration-200">
+                    <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col items-center text-center space-y-3 hover:shadow-md transition-shadow duration-200">
                         <div className="p-4 bg-indigo-50 rounded-full text-indigo-600 mb-2">
                             <Leaf className="w-8 h-8" />
                         </div>
@@ -153,7 +163,7 @@ export default async function ProgressPage() {
                         </div>
                         <div className="relative z-10 space-y-4">
                             <h2 className="text-lg font-bold text-indigo-900 flex items-center gap-2 mb-2">
-                                <span className="text-2xl">🧠</span> 
+                                <span className="text-2xl">🧠</span>
                                 Learning Overview
                             </h2>
                             <p className="text-slate-700 leading-relaxed text-lg font-medium">
@@ -176,7 +186,7 @@ export default async function ProgressPage() {
                             <h2 className="text-lg font-bold text-indigo-900 flex items-center gap-2 mb-6 border-b border-indigo-50 pb-4">
                                 <span className="text-xl">📈</span> Growing Awareness
                             </h2>
-                             <div className="prose prose-slate prose-sm max-w-none grow text-slate-600">
+                            <div className="prose prose-slate prose-sm max-w-none grow text-slate-600">
                                 <ReactMarkdown>{sections.understanding}</ReactMarkdown>
                             </div>
                         </div>
