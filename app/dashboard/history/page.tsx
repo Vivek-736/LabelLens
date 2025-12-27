@@ -74,24 +74,46 @@ async function HistoryList() {
                 <Link
                     key={scan.id}
                     href={`/dashboard/scan/${scan.id}`}
-                    className="group block bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden"
+                    className="group bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:shadow-indigo-500/10 transition-all duration-300 overflow-hidden flex flex-col h-full"
                 >
-                    <div className="aspect-4/3 w-full bg-slate-50 relative border-b border-slate-100">
+                    <div className="aspect-4/3 w-full bg-slate-50 relative border-b border-slate-100 overflow-hidden">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                             src={scan.imageUrl}
                             alt={`Scan ${scan.id}`}
-                            className="w-full h-full object-contain p-4 transition-transform duration-300"
+                            className="w-full h-full object-contain p-6 transition-transform"
                         />
+                        {scan.quizCompleted && (
+                            <div className="absolute top-3 right-3 bg-emerald-100 text-emerald-700 text-[10px] font-bold px-2 py-1 rounded-full border border-emerald-200/50 shadow-xs uppercase tracking-wider">
+                                Quiz Done
+                            </div>
+                        )}
                     </div>
-                    <div className="p-4">
-                        <div className="flex items-center gap-2 text-xs font-medium text-slate-500 mb-2">
+                    <div className="p-5 flex flex-col grow">
+                        <div className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-3">
                             <Calendar className="w-3.5 h-3.5" />
-                            <span>{new Date(scan.createdAt).toLocaleDateString()}</span>
+                            <span>
+                                {new Date(scan.createdAt).toLocaleDateString('en-US', {
+                                    month: 'short',
+                                    day: 'numeric',
+                                    year: 'numeric'
+                                })}
+                            </span>
                         </div>
-                        <h3 className="text-sm font-semibold text-slate-900 group-hover:text-indigo-600 transition-colors">
-                            Your Scan
+                        <h3 className="text-base font-bold text-slate-900 mb-1 group-hover:text-indigo-600 transition-colors">
+                            Ingredient Analysis
                         </h3>
+                        <p className="text-xs text-slate-500 line-clamp-2 mb-4">
+                            Tap to view full health insights and nutritional breakdown.
+                        </p>
+                        <div className="mt-auto pt-4 border-t border-slate-50 flex items-center justify-between text-indigo-600">
+                            <span className="text-xs font-semibold">
+                                View Details
+                            </span>
+                            <div className="bg-indigo-50 rounded-full p-1.5 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300">
+                                <ArrowRight className="w-3.5 h-3.5" />
+                            </div>
+                        </div>
                     </div>
                 </Link>
             ))}
