@@ -2,9 +2,9 @@
 
 import styled from 'styled-components';
 
-const Loading = () => {
+const Loading = ({ className }: { className?: string }) => {
     return (
-        <StyledWrapper className='min-h-screen flex items-center justify-center'>
+        <StyledWrapper className={className || 'min-h-screen flex items-center justify-center'}>
             <div className="loader" />
         </StyledWrapper>
     );
